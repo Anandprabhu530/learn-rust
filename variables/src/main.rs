@@ -1,3 +1,5 @@
+const DATA: &str = "Hello for const";
+static mut TEST_FOR_STATIC:  &str = "Hello for Static";
 fn main(){
     let a = 10;
     println!("A value after block is {a} ");
@@ -7,9 +9,12 @@ fn main(){
     let mut tuple = (1,2,"hello");
     tuple.1 = 3;
     let mut test:String = String::new();
-    let a : String = String::from("Hello World");
+    let mut a : String = String::from("Hello World");
     test = String::from("Testing");
+    a = test;
     println!("A value after block is {a} ");
     let (data1,data2,data3) = tuple;
-
+    println!("{DATA}");
+    //can mutate static only in unsafe mode
+    unsafe { println!("{TEST_FOR_STATIC}")}
 }
