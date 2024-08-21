@@ -45,5 +45,19 @@ fn main(){
     //value has been changed after going inside the scope -- Bcz We mutated it inside the scope
     println!("Value of A after scope {}",a);
 
+    let test1 = String::from("String to print");
 
+    test_function(test1);
+    
+    //Cannot print test1 since it is moved bcz the function does not return.It dropped the value there
+    //same like ownership transfer
+    //but will work for primitives
+    // println!("{}",test1);
+
+    //can clone and spend else return
+}
+
+fn test_function(test1:String){
+    println!("{}",test1);
+    
 }
