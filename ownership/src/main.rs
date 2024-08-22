@@ -60,8 +60,11 @@ fn main(){
 
     //added mut to line let c = mutable reference
     let mut a = String::from("Hello World");
+    
+    //make a immutable reference
     let b = &a;
     printer(b);
+    
 
     //the printer function does not return but the value is never lost because we created a reference to it
     println!("Value of a is {}",b);
@@ -72,14 +75,36 @@ fn main(){
 
     //but here there is a mut and an immutable refernce bcz the copiler figured out that the b which has a &a is not used below
 
-    //this will throw error on line 71 for creating a immutable reference
+    //this will throw error on line 73 for creating a immutable reference
     // println!("Value of a is {}",b);
 
+    //now let pass the mutable refernece to a function
+    //receiving parameters should be like &mut (datatype)
+    printer2(c);
+ 
+    //cannot do this bcz already it checks a . At first b has a immutable reference of a followed by c with a mut reference
+    //So When we try to access a now it has two references a mut and immutable
+    //This is not permitted in rust
+    //But it let us create a mut reference when there was a immutable reference bcz the immutable one ends it work before
+    //declaration of mut reference.  The compiler figures it out
+    // println!("{}",a);
+    println!("{}",c);
 
+
+    let mut tests = String::from("Test data");
+
+    let testptr = &mut tests;
+    printer2(testptr);
+
+    println!("{}",tests)
 }
 
 fn printer(a: &String){
     println!("This is inside printer function {}",a)
+}
+
+fn printer2(a: &mut String){
+    a.push_str(" from printer 2");
 }
 
 fn test_function(test1:String){
