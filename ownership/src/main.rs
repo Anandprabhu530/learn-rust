@@ -55,6 +55,31 @@ fn main(){
     // println!("{}",test1);
 
     //can clone and spend else return
+
+    //pass references 
+
+    //added mut to line let c = mutable reference
+    let mut a = String::from("Hello World");
+    let b = &a;
+    printer(b);
+
+    //the printer function does not return but the value is never lost because we created a reference to it
+    println!("Value of a is {}",b);
+
+    //rust says there can only be only one mutable or infinite immutable references
+    //to make a mutable reference the original variable should also be mutable
+    let c = &mut a;
+
+    //but here there is a mut and an immutable refernce bcz the copiler figured out that the b which has a &a is not used below
+
+    //this will throw error on line 71 for creating a immutable reference
+    // println!("Value of a is {}",b);
+
+
+}
+
+fn printer(a: &String){
+    println!("This is inside printer function {}",a)
 }
 
 fn test_function(test1:String){
