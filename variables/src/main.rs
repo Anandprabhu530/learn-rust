@@ -13,7 +13,7 @@ fn main(){
     test = String::from("Testing");
     a = test;
     println!("A value after block is {a} ");
-    let (data1,data2,data3) = tuple;
+    let (_data1,_data2,_data3) = tuple;
     println!("{DATA}");
     //can mutate static only in unsafe mode
     unsafe { println!("{TEST_FOR_STATIC}")}

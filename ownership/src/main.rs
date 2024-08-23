@@ -73,7 +73,7 @@ fn main(){
     //to make a mutable reference the original variable should also be mutable
     let c = &mut a;
 
-    //but here there is a mut and an immutable refernce bcz the copiler figured out that the b which has a &a is not used below
+    //but here there is a mut and an immutable refernce bcz the compiler figured out that the b which has a &a is not used below
 
     //this will throw error on line 73 for creating a immutable reference
     // println!("Value of a is {}",b);
@@ -105,6 +105,12 @@ fn printer(a: &String){
 
 fn printer2(a: &mut String){
     a.push_str(" from printer 2");
+
+
+    //can deallocate manually with the *sign. But the rust takes care of the cleaning. But sometimes this will be useful
+    //example
+    // (*a).push_str(" from printer 2");
+  
 }
 
 fn test_function(test1:String){
