@@ -49,6 +49,27 @@ fn main() {
     println!("{}",d);
     println!("{}",c);
 
+    //another way to concate
+    let a = String::from("Hello ");
+    let b = String::from(" World");
+    //cannot do a+b bcz what we do here is we move a into c but cannot also move b to c so we should pass a ref to b
+    let c = a+&b;
+
+    //cannot access a bcz moved to c
+    println!("{}",c);
+
+    //string traveral
+    //byte by byte
+    let a = "Family Guy";
+    for a in a.bytes(){
+       print!("{} ",a);
+    }
+
+    println!("");
+    //by chars
+    for a in a.chars(){
+       print!("{} ",a);
+    }
 
 
 }
