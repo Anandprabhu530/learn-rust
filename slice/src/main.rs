@@ -19,6 +19,38 @@ fn main() {
     let ans2 = adder2(&b);
     println!("{}",ans2);
 
+    //move to strings
+    let a =  "hello World";
+    //to_sring() converts &str to String type
+    let _b = a.to_string();
+    //format macro converts &str to String type format is slow and costly sometimes
+    let _c = format!("{}",a);
+    //to_owned() converts &str to String type
+    let _d =  a.to_owned();
+
+    //pushing to strings
+    //first make it mut
+    let mut a = String::from("Hello, ");
+    a.push_str("World");
+    println!("{}",a);
+    //can also use concat
+    let mut b = "Hello, ";
+    println!("{}",b);
+
+    //can concat like these or like below
+    let c = concat!("Hello","World");
+    //another way to concatenate
+    b = "Yest";
+    let temp = String::from("Test temp value");
+
+    //cannot pass temp itself pass a ref to it like a string literal
+    let d = [b,&temp].concat();
+
+    println!("{}",d);
+    println!("{}",c);
+
+
+
 }
 
 
