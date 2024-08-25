@@ -23,5 +23,6 @@ fn main() {
         println!("{}'s bag is empty!", a.company)
     }
     println!("Laptop Brand:{}  Ram:{}gb, HDD:{}TB",a.company,a.ram,a.hdd);
+    println!("Reset not done");
 
 }
