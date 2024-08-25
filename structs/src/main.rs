@@ -5,6 +5,13 @@ struct Laptop{
     os:Option<String>
 }
 
+//implementation
+impl Laptop{
+    fn printer(&self){
+        println!("Inside implementation");
+        println!("Laptop Brand:{}  Ram:{}gb, HDD:{}TB, OS:{:?}",self.company,self.ram,self.hdd,self.os);
+    }
+}
 fn main() {
     let mut a = Laptop{
         company:String::from("Dell"),
@@ -22,7 +29,6 @@ fn main() {
     } else {
         println!("{}'s bag is empty!", a.company)
     }
-    println!("Laptop Brand:{}  Ram:{}gb, HDD:{}TB",a.company,a.ram,a.hdd);
-    println!("Reset not done");
-    println!("Reset not done");
+    // println!("Laptop Brand:{}  Ram:{}gb, HDD:{}TB",a.company,a.ram,a.hdd);
+    a.printer();
 }
