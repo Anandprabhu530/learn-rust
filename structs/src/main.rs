@@ -24,5 +24,5 @@ fn main() {
     }
     println!("Laptop Brand:{}  Ram:{}gb, HDD:{}TB",a.company,a.ram,a.hdd);
     println!("Reset not done");
-
+    println!("Reset not done");
 }
