@@ -1,8 +1,22 @@
 fn main() {
-    let str1 = String::from("LLLLRRRR");
-    let ans = balanced_string_split(str1);
+    let str1 = String::from("abcd");
+    let ans = reverse_prefix(str1,'e');
     println!("{}",ans);
   }
+
+//https://leetcode.com/problems/reverse-prefix-of-word/
+fn reverse_prefix(word: String, ch: char) -> String {
+    let mut ans = String::new();
+    let mut first = false;
+    for letter in word.chars(){
+        ans.push_str(&String::from(letter));
+        if letter==ch && first==false {
+            first = true;
+            ans = ans.chars().rev().collect::<String>();
+        }
+    }
+    ans
+}
 
 //https://leetcode.com/problems/truncate-sentence/description/
 fn _truncate_sentence(s: String, k: i32) -> String {
