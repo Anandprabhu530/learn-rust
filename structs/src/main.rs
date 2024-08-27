@@ -1,10 +1,23 @@
+use std::f32::consts::PI;
+
 struct Laptop{
     company:String,
     ram:i32,
     hdd:i32,
     os:Option<String>
 }
+//Sample for rust-docs
+//add the below to print structs
+#[derive(Debug)]
+struct sample{
+    radius:i32
+}
 
+impl sample {
+    fn area(&self)->f32{
+        (self.radius*self.radius) as f32 *3.14
+    }
+}
 //implementation
 impl Laptop{
     fn printer(&self){
@@ -31,4 +44,20 @@ fn main() {
     }
     // println!("Laptop Brand:{}  Ram:{}gb, HDD:{}TB",a.company,a.ram,a.hdd);
     a.printer();
+
+    let circle1 = sample{
+        radius:5
+    };
+    let ans = area(&circle1);
+    println!("The area of the circle is {}",ans);
+    println!("The actual circle object is {:?}",circle1);
+    
+    //below will be implemented with methods for the same
+    let ans1 = circle1.area();
+    println!("The area of the circle with imp is {}",ans1);
+
+}
+
+fn area(circle:&sample)->f32{
+    (circle.radius*circle.radius) as f32*3.14
 }
