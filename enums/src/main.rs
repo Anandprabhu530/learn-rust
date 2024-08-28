@@ -11,6 +11,13 @@ struct MovieN{
     price:i32
 }
 
+impl MovieN{
+    fn printer(&self){
+        println!("Inside impl printer");
+        println!("{:?}",self.rating);
+    }
+}
+
 fn main(){
 
     //You can also do with structs
@@ -18,6 +25,8 @@ fn main(){
         rating:Category::Action(String::from("Avengers")),
         price:130
     };
+
+    movie1.printer();
 
     //you can also do with enums
     let movie2 = Category::Horror(String::from("Friday 13th"));
