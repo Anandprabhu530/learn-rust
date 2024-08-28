@@ -25,6 +25,16 @@ impl Laptop{
         println!("Laptop Brand:{}  Ram:{}gb, HDD:{}TB, OS:{:?}",self.company,self.ram,self.hdd,self.os);
     }
 }
+
+struct test{
+    number:i32
+}
+
+impl test {
+    fn alter(&mut self,value:i32){
+        self.number = value;
+    }
+}
 fn main() {
     let mut a = Laptop{
         company:String::from("Dell"),
@@ -55,6 +65,11 @@ fn main() {
     //below will be implemented with methods for the same
     let ans1 = circle1.area();
     println!("The area of the circle with imp is {}",ans1);
+    let mut sample = test{
+        number:20
+    };
+    sample.alter(32);
+    println!("{:?}",sample.number)
 
 }
 
