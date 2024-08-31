@@ -3,6 +3,7 @@ enum Category{
     Action(String),
     Horror(String),
     Adventure(String),
+    text,
 }
 
 #[derive(Debug)]
@@ -10,6 +11,7 @@ struct MovieN{
     rating:Category,
     price:i32
 }
+
 
 impl MovieN{
     fn printer(&self){
@@ -31,6 +33,11 @@ fn main(){
     //you can also do with enums
     let movie2 = Category::Horror(String::from("Friday 13th"));
     let movie3 = Category::Adventure(String::from("Tomb Raider"));
+    let sam = Category::text;
+
+    if let Category::text = sam{
+        println!("Pattern matched")
+    }
 
     println!("Movie 1: {:#?}, Movie 2: {:?}, Movie 3: {:?}",movie1,movie2,movie3);
 
@@ -59,6 +66,10 @@ fn main(){
             None=>None,
             Some(a) => Some(a+b),
         }
+    }
+
+    if let Some(a) = sample1{
+        println!("Value of a in if let {:?}", a);
     }
 
     let ans2 = add_number2(sample2,temp);
