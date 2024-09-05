@@ -1,4 +1,4 @@
-use std::io::{self, Write};
+use std::io::{self, Read, Write};
 
 fn main() {
     print!("Please Enter your username: ");
@@ -24,6 +24,21 @@ fn main() {
     }else{
         println!("welcome {trimmed_username}");
     }
+    println!("Please choose a game from below: ");
+    println!("1 - 777 Gamble");
+    println!("2 - Bingo");
 
+    println!("Enter your choice");
+    let mut choice=String::new();
+    io::stdin()
+        .read_line(&mut choice)
+        .expect("Failed to read");
+    let trimmed_choice = choice.trim();
+    print!("{}[2J", 27 as char);
+    if trimmed_choice.eq("1"){
+        println!("You Choose 777 Gamble")
+    }else if trimmed_choice.eq("2"){
+        println!("You choose Bingo");
+    }
 }
 
