@@ -35,7 +35,6 @@ fn main() {
         .read_line(&mut choice)
         .expect("Failed to read");
     let trimmed_choice = choice.trim();
-    print!("{}[2J", 27 as char);
     if trimmed_choice.eq("1"){
         println!("You Choose 777 Gamble");
         println!("Guess the number between 1 - 10");

@@ -1,4 +1,9 @@
 fn main(){
-    let ans: (i32,i32,String)  = (2,3,String::from("Hello"));
+    let (a,b,ans) = (1,2,String::from("Hello"));
     println!("The contents are {:?}",ans);
+
+    //cannot do this bcz string cannot be added to int
+    //println!("{}",ans+2);
+
+    println!("The sum is {}", a+b);
 }
