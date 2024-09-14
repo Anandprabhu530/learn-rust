@@ -4,6 +4,15 @@ fn main(){
     let mut a = vec![1,2,3,4];
     a.push(5);
     println!("Vector value {:?}",a);
+    let second = &a[2];
+    println!("The 2nd element is {second}");
+    let also_second = a.get(2);
+
+    match also_second {
+        Some(number)=>println!("The 2nd element is {number} -- done with get() and pattern matching"),
+        None => ()
+    }
+
     let mut input_vec = Vec::new();
     let mut input_enter = String::new();
     io::stdin()
