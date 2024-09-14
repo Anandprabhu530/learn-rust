@@ -1,7 +1,8 @@
 fn main() {
-    let str1 = String::from("abcd");
-    let ans = reverse_prefix(str1,'e');
-    println!("{}",ans);
+    // let str1 = String::from("abcd");
+    // let ans = reverse_prefix(str1,'e');
+    let ans = fizzbuzz(15);
+    println!("{:?}",ans);
   }
 
 //https://leetcode.com/problems/reverse-prefix-of-word/
@@ -67,6 +68,22 @@ fn _interpret(command: String) -> String {
         }else{
             check = false;
             ans.push_str(&String::from(word));
+        }
+    }
+    ans
+}
+
+fn fizzbuzz(n: i32)-> Vec<String> {
+    let mut ans = Vec::new();
+    for i in 1..n+1{
+        if i%5==0 && i%3==0{
+            ans.push("FizzBuzz".to_string());
+         }else if i%3==0{
+            ans.push("Fizz".to_string());
+        }else if i%5==0{
+               ans.push("Buzz".to_string());
+        }else{
+            ans.push(i.to_string());
         }
     }
     ans
