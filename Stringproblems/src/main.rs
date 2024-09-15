@@ -73,6 +73,7 @@ fn _interpret(command: String) -> String {
     ans
 }
 
+//https://leetcode.com/problems/fizz-buzz/description/
 fn fizzbuzz(n: i32)-> Vec<String> {
     let mut ans = Vec::new();
     for i in 1..n+1{
@@ -87,4 +88,49 @@ fn fizzbuzz(n: i32)-> Vec<String> {
         }
     }
     ans
+}
+
+// https://leetcode.com/problems/two-sum/
+//Improve fix with hashmap
+fn twosum(nums:Vec<i32>,target:i32)->Vec<i32>{
+    let mut ans = Vec::new();
+    for i in 0..nums.len(){
+        for j in i+1..nums.len(){
+            if &nums[i]+&nums[j]==target{
+                ans.push(i as i32);
+                ans.push(j as i32);
+                return ans;
+            }
+        }
+    }
+    ans
+}
+
+// https://leetcode.com/problems/palindrome-number/
+//optimize
+fn is_palindrome(x:i32)->bool{
+    // if x<0{
+    //     return false;
+    // }
+    // let mut temp:i32 = x.clone();
+    // let mut rev:i32 = 0;
+    // while temp!=0{
+    //     let ans = temp%10;
+    //     rev = ans + rev*10;
+    //     temp = temp/10;
+    // }
+    // if x!=rev{
+    //     return false;
+    // }
+    // true
+    let ans = x.to_string();
+    for index in 0..ans.len()/2{
+        if ans.chars().nth(index).unwrap() != ans.chars().nth(ans.len()-1-index).unwrap(){
+            return false;
+        }
+
+    }
+    true
+    //one liner
+    // return x.to_string().chars().rev().eq(x.to_string().chars());
 }
