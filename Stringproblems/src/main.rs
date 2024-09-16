@@ -135,12 +135,13 @@ fn is_palindrome(x:i32)->bool{
     // return x.to_string().chars().rev().eq(x.to_string().chars());
 }
 
-
-fn search_insert()->i32{
+//https://leetcode.com/problems/search-insert-position/
+//runtime error change code
+fn _search_insert()->i32{
     let nums = vec![1,3,5,6];
     let target = 5;
     let mut start = 0;
-    let mut end = 922337203685477580;
+    let mut end = nums.len()-1;
     while start<=end{
         let mid = start + (end-start)/2;
         if &nums[mid]==&target{
