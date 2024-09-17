@@ -7,7 +7,7 @@ fn main() {
   }
 
 //https://leetcode.com/problems/reverse-prefix-of-word/
-fn reverse_prefix(word: String, ch: char) -> String {
+fn _reverse_prefix(word: String, ch: char) -> String {
     let mut ans = String::new();
     let mut first = false;
     for letter in word.chars(){
@@ -36,7 +36,7 @@ fn _truncate_sentence(s: String, k: i32) -> String {
 }
 
 //https://leetcode.com/problems/split-a-string-in-balanced-strings/description/
-fn balanced_string_split(s: String) -> i32 {
+fn _balanced_string_split(s: String) -> i32 {
     let mut l =0;
     let mut ans =0;
     for word in s.chars(){
@@ -75,7 +75,7 @@ fn _interpret(command: String) -> String {
 }
 
 //https://leetcode.com/problems/fizz-buzz/description/
-fn fizzbuzz(n: i32)-> Vec<String> {
+fn _fizzbuzz(n: i32)-> Vec<String> {
     let mut ans = Vec::new();
     for i in 1..n+1{
         if i%5==0 && i%3==0{
@@ -93,7 +93,7 @@ fn fizzbuzz(n: i32)-> Vec<String> {
 
 // https://leetcode.com/problems/two-sum/
 //Improve fix with hashmap
-fn twosum(nums:Vec<i32>,target:i32)->Vec<i32>{
+fn _twosum(nums:Vec<i32>,target:i32)->Vec<i32>{
     let mut ans = Vec::new();
     for i in 0..nums.len(){
         for j in i+1..nums.len(){
@@ -109,7 +109,7 @@ fn twosum(nums:Vec<i32>,target:i32)->Vec<i32>{
 
 // https://leetcode.com/problems/palindrome-number/
 //optimize
-fn is_palindrome(x:i32)->bool{
+fn _is_palindrome(x:i32)->bool{
     // if x<0{
     //     return false;
     // }
@@ -175,7 +175,7 @@ fn movezeros(nums: &mut Vec<i32>){
 }
 
 //https://leetcode.com/problems/find-pivot-index/
-fn pivot_index(nums:Vec<i32>)->i32{
+fn _pivot_index(nums:Vec<i32>)->i32{
     let mut rightsum = 0;
     for i in 0..nums.len(){
         rightsum += nums[i];
@@ -188,6 +188,26 @@ fn pivot_index(nums:Vec<i32>)->i32{
             return i as i32;
         }
         leftsum += nums[i];
+    }
+    -1
+}
+
+//https://leetcode.com/problems/binary-search
+fn _binary_search(nums:Vec<i32>,target:i32)->i32{
+    if target>nums[nums.len()-1] || target<nums[0]{
+        return -1;
+    }
+    let mut start = 0;
+    let mut end = nums.len()-1;
+    while start<=end{
+        let mid = start + (end-start)/2;
+        if nums[mid]==target{
+            return mid as _;
+        }else if nums[mid]>target{
+            end = mid -1;
+        }else{
+            start = mid + 1;
+        }
     }
     -1
 }
