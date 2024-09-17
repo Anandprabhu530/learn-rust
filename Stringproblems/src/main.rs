@@ -173,3 +173,21 @@ fn movezeros(nums: &mut Vec<i32>){
         nums[i] = 0;
     }
 }
+
+//https://leetcode.com/problems/find-pivot-index/
+fn pivot_index(nums:Vec<i32>)->i32{
+    let mut rightsum = 0;
+    for i in 0..nums.len(){
+        rightsum += nums[i];
+    }
+
+    let mut leftsum = 0;
+    for i in 0..nums.len(){
+        rightsum -= nums[i];
+        if leftsum==rightsum{
+            return i as i32;
+        }
+        leftsum += nums[i];
+    }
+    -1
+}
