@@ -1,8 +1,9 @@
 fn main() {
     // let str1 = String::from("abcd");
     // let ans = reverse_prefix(str1,'e');
-    let ans = fizzbuzz(15);
-    println!("{:?}",ans);
+    let mut vec1 = vec![1,2,3,0,2,2,0,0,0,4];
+    movezeros(&mut vec1);
+    println!("{:?}",vec1);
   }
 
 //https://leetcode.com/problems/reverse-prefix-of-word/
@@ -153,4 +154,22 @@ fn _search_insert()->i32{
         }
     }
     return start as i32;
+}
+
+//https://leetcode.com/problems/move-zeroes
+fn movezeros(nums: &mut Vec<i32>){
+    let mut support_vec = Vec::new();
+    for i in 0..nums.len(){
+        if nums[i]!=0{
+            support_vec.push(nums[i]);
+        }
+    }
+
+    for i in 0..support_vec.len(){
+        nums[i] = support_vec[i];
+    }
+
+    for i in support_vec.len()..nums.len(){
+        nums[i] = 0;
+    }
 }
